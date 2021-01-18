@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swaggerdefgen
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: swaggerdefgen 
+  template:
+    metadata:
+      labels:
+        app: swaggerdefgen
+    spec:
+      containers:
+      - image: namanarora/swagdefgen:latest
+        name: swaggerdefgen
+        ports:
+          - containerPort: 8080
