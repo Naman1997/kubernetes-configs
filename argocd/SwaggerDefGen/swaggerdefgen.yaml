@@ -14,7 +14,7 @@ spec:
         app: swaggerdefgen
     spec:
       containers:
-      - image: namanarora/swagdefgen:latest
+      - image: docker.io/namanarora/swaggerdefgen 
         name: swaggerdefgen
         ports:
           - containerPort: 8000
