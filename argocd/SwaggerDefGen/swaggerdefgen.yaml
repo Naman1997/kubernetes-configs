@@ -17,4 +17,4 @@ spec:
       - image: namanarora/swagdefgen:latest
         name: swaggerdefgen
         ports:
-          - containerPort: 8080
+          - containerPort: 8000
