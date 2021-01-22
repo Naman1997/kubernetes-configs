@@ -1,0 +1,17 @@
+name: Manifest Linting
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lint k8s manifest files
+        uses: Azure/k8s-lint@v1
+        with:
+          manifests: .
+          lintType: kubeval
