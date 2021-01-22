@@ -1,0 +1,19 @@
+- name: Kubernetes yaml validation by kubeval
+  # You may pin to the exact commit or the version.
+  # uses: makocchi-git/actions-k8s-manifests-validate-kubeval@9dc7088b423786f8de0ab88a1970c8e0468bae4e
+  uses: makocchi-git/actions-k8s-manifests-validate-kubeval@v1.0.1
+  with:
+    # Files or directories to validate (kubeval --directories)
+    files: # optional, default is .
+    # Version of Kubernetes to validate against (kubeval --kubernetes-version)
+    version: # optional, default is master
+    # Whether to not to check for extra properties (kubeval --strict)
+    strict: # optional, default is true
+    # Whether to use the schemas from OpenShift rather than Kubernetes (kubeval --openshift)
+    openshift: # optional
+    # Whether or not to skip custom resources (kubeval --ignore-missing-schemas)
+    ignore_missing_schemas: # optional, default is true
+    # Send comment to pull requests
+    comment: # optional, default is true
+    # Github token for api. This is required if comment is true
+    token: # optional, default is 
