@@ -1,17 +1,14 @@
-name: Manifest Linting
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-  workflow_dispatch:
+name: Manifest Validation
+
+on: [push]
 
 jobs:
-  build:
+  validation:
     runs-on: ubuntu-latest
     steps:
-      - name: Lint k8s manifest files
-        uses: Azure/k8s-lint@v1
+      - uses: actions/checkout@v2
+      - name: validate manifests
+        uses: makocchi-git/actions-k8s-manifests-validate-kubeval@1.0.0
         with:
-          manifests: .
-          lintType: kubeval
+          files: argocd/SwaggerDefGen,jenkins
+          token: ${{ secrets.GITHUB_TOKEN }}
