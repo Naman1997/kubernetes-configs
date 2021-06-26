@@ -18,4 +18,5 @@ kubectl version --short --client
 Check if nodes are available -
 ```sh
 kubectl get nodes
+kubectl label nodes kworker1 kworker2 kubernetes.io/role=worker
 ```
