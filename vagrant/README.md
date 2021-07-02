@@ -26,12 +26,12 @@ vagrant reload
 ```
 after you have changed 'private' to 'public' in the Vagrantfile
 
-##Troubleshooting
+## Troubleshooting
 
-###Unable to ssh into kmaster box
+### Unable to ssh into kmaster box
 
 It has been noticed that sometimes vagrant is unable to ssh into kmaster due to timeout after some time. The solution so far is to instantly ssh into the vm after a vagrant reload.
 
-###VM State not being saved after reboot
+### VM State not being saved after reboot
 
 In order to keep the same VM around and not loose its state, use the vagrant suspend and vagrant resume commands. This will make your VM survive a host machine reboot with its state intact.
