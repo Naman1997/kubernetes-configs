@@ -1,5 +1,6 @@
 # ![](https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Vagrant.png/150px-Vagrant.png)
 
+## Setup
 
 To get a proper k8s setup with VMs, cd into this dir and run the following commands -
 ```sh
