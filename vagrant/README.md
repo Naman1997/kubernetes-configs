@@ -20,3 +20,8 @@ Check if nodes are available -
 kubectl get nodes
 kubectl label nodes kworker1 kworker2 kubernetes.io/role=worker
 ```
+If you're using public networking, you might need to
+ ```sh
+vagrant reload
+```
+after you have changed 'private' to 'public' in the Vagrantfile
