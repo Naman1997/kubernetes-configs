@@ -25,3 +25,6 @@ If you're using public networking, you might need to
 vagrant reload
 ```
 after you have changed 'private' to 'public' in the Vagrantfile
+
+Troubleshooting
+It has been noticed that sometimes vagrant is unable to ssh into kmaster due to timeout after some time. The solution so far is to instantly ssh into the vm after a vagrant reload.
