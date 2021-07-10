@@ -14,18 +14,24 @@ And although you could go for arch with kvm as the hypervisor for your cluster, 
 ## Cluster node config
 ### My Host
 16 Vcpus
+
 32gb ram
+
 1000gb storage
 
 ### VMs
 #### kmaster x 1 
-6 Vcpus 
-12gb ram 
-300gb storage 
+6 Vcpus
+
+12gb ram
+
+300gb storage
 
 #### kworker x 2 
-4 Vcpus 
-8gb ram 
+4 Vcpus
+
+8gb ram
+
 200gb storage
 
 Rest of the resources are left for LXC containers and Proxmox itself
@@ -44,22 +50,41 @@ sudo dd bs=4M if=path/to/proxmox.iso of=/dev/sd<?> conv=fdatasync  status=progre
 - Follow the installer and setup Proxmox on your drive for proxmox. Make sure there is notthing important on that drive as it will be wiped clean.
 
 ## Installing arch on all VMs
+
+##### Manual approach
 We'll be using archinstall package for a faster guided install. Make sure to create another user who has sudo access.
 ```sh
 sudo pacman -Syyy
 sudo pacman -S archinstall
 archinstall
 ```
+
+##### Automated approach(Optional)
+You can also optionally use the sample [config](https://raw.githubusercontent.com/Naman1997/kubernetes-configs/master/kubeadm/archinstall_config.json) provided in this repo. Make sure to update the following settings:
+ - Passwords for all users
+ - Hostname
+ - Timezone
+
+Then install like so
+```sh
+sudo pacman -Syyy
+sudo pacman -S archinstall git
+git clone https://github.com/Naman1997/kubernetes-configs.git
+cd kubernetes-configs/kubeadm/
+archinstall --config archinstall_config.json
+```
+
+
 Setup your arch installation for all vms in the same manner. Once done, remove the installation medium and boot into the OS.
 
-## Setting up passwordl-less SSH access for all VMs
+## Setting up password-less SSH access for all VMs
 You'll be copy pasting a lot of stuff from and to the VMs. Setting up password-less SSH access is a good idea.
-Follow these steps in order
+Follow these steps in order:
  - Copy contents of your ~/.ssh/id_rsa.pub file or whichever key you'll use to ssh into these VMs
  - SSH into each VM's non-root user with the password. Usually you'll need to either ssh with a non-root user or allow root ssh access from Proxmox
  - Paste contents from the 1st step in a new file : ~/.ssh/authorized_keys
 ## Setting up the nodes for k8s
-These instructions might change in the future. Please refer [this](https://wiki.archlinux.org/title/Kubernetes) page for reference.
+These instructions might change in the future. Please refer to [this](https://wiki.archlinux.org/title/Kubernetes) page for reference.
 ### Setting up kmaster node
 
 ##### Installing dependencies
