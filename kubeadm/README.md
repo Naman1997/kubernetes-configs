@@ -123,9 +123,8 @@ rm -rf $HOME/.kube
 sudo rm -rf /etc/cni/net.d
 rm /var/lib/kubelet/config.yaml
 sudo systemctl stop kubelet.service
-sudo kubeadm init phase kubelet-start
 ```
-After the above steps retry from kubeadm init step above from "Setting up master and control plane roles" section
+After the above steps retry from [kubeadm init step](https://github.com/Naman1997/kubernetes-configs/blob/master/kubeadm/README.md#setting-up-master-and-control-plane-roles)
 
 ### Setting up kmaster nodes
 
