@@ -90,6 +90,7 @@ These instructions might change in the future. Please refer to [this](https://wi
 ##### Installing dependencies
 ```sh
 sudo pacman -S kubernetes-control-plane kubeadm kubelet containerd kubectl cni-plugins git lxd docker vi vim
+sudo systemctl enable kubelet.service
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
@@ -131,6 +132,7 @@ After the above steps retry from [kubeadm init step](https://github.com/Naman199
 ##### Installing dependencies
 ```sh
 sudo pacman -S kubernetes-node kubeadm kubelet containerd kubectl cni-plugins git lxd docker vi vim
+sudo systemctl enable kubelet.service
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
