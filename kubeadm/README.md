@@ -126,7 +126,7 @@ sudo systemctl stop kubelet.service
 ```
 After the above steps retry from [kubeadm init step](https://github.com/Naman1997/kubernetes-configs/blob/master/kubeadm/README.md#setting-up-master-and-control-plane-roles)
 
-### Setting up kmaster nodes
+### Setting up kworker nodes
 
 ##### Installing dependencies
 ```sh
