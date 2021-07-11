@@ -112,9 +112,9 @@ Learn more [here](https://stackoverflow.com/a/58618952/9931915)
 ##### Troubleshooting
 
 ###### Pod with name like kube-flannel-ds* is in CrashLoopBackOff OR Pod with name like coredns* is in a not ready state
-You might need to patch all your nodes
+You might need to patch all your nodes. Example: The suggested CIDR for flannel and canal networks is 10.244.0.0/16 and for calico network it could be 192.168.0.0/16.
 ```sh
-kubectl patch node <NODE_NAME> -p '{"spec":{"podCIDR":"172.31.10.0/24"}}'
+kubectl patch node <NODE_NAME> -p '{"spec":{"podCIDR":"10.244.0.0/16"}}'
 ```
 
 ##### Kubelet.service complaining that /var/lib/kubelet/config.yaml was not found
