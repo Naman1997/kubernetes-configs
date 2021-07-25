@@ -1,5 +1,5 @@
 {
-    "!root-password": "******",
+    "!root-password": "kubernetes",
     "audio": null,
     "bootloader": "grub-install",
     "harddrive": null,
@@ -59,8 +59,8 @@
     },
     "script": "guided",
     "superusers": {
-        "kmaster": {
-            "!password": "******"
+        "kube": {
+            "!password": "kubernetes"
         }
     },
     "sys-encoding": "utf-8",
