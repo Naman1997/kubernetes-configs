@@ -1,9 +1,9 @@
 {
-    "!root-password": "kubernetes",
+    "!root-password": "******",
     "audio": null,
     "bootloader": "grub-install",
     "harddrive": null,
-    "hostname": "pve.proxmox.kmaster",
+    "hostname": "pve.ironheart.kmaster",
     "kernels": [
         "linux"
     ],
@@ -60,12 +60,12 @@
     "script": "guided",
     "superusers": {
         "kube": {
-            "!password": "kubernetes"
+            "!password": "******"
         }
     },
     "sys-encoding": "utf-8",
     "sys-language": "en_US",
-    "target-mount": "/dev/vda",
+    "target-mount": "/mnt",
     "timezone": "Asia/Kolkata",
     "users": {}
 }
