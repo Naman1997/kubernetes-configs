@@ -1,0 +1,10 @@
+#cloud-config
+users:
+  - name: root
+    ssh_authorized_keys:
+      - ssh-rsa {{KEY}}
+runcmd:
+  - pacman -Syyy
+  - pacmen -S archinstall
+  - echo "===========================INSTALLING ARCH TO DRIVE================================"
+  - yes | archinstall --config https://raw.githubusercontent.com/Naman1997/kubernetes-configs/master/kubeadm/archinstall_config.json
