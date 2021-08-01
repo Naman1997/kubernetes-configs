@@ -70,5 +70,6 @@
         "path": "/dev/sda"
     },
     "timezone": "Asia/Kolkata",
-    "users": {}
+    "users": {},
+    "_selected_servers": {}
 }
