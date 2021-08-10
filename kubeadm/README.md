@@ -47,6 +47,7 @@ sudo dd bs=4M if=path/to/proxmox.iso of=/dev/sd<?> conv=fdatasync  status=progre
 ```
 - Boot into the iso
 - If you have a Nvidia gpu, add an extra kernel parameter by pressing "e" and typing "nomodeset" at the end of the line that starts with "linux". Save with Ctrl+X
+- You can make the above step happen by default on each reboot by adding "nomodeset" in "/etc/default/grub" to "GRUB_CMDLINE_LINUX_DEFAULT" and running "update-grub" as sudo after the proxmox installation has finished.
 - Follow the installer and setup Proxmox on your drive for proxmox. Make sure there is notthing important on that drive as it will be wiped clean.
 
 ## Installing arch on all VMs
