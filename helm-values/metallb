@@ -1,0 +1,111 @@
+configInline:
+  address-pools:
+  - addresses:
+    - 198.51.100.0/24
+    name: default
+    protocol: layer2
+controller:
+  affinity: {}
+  enabled: true
+  image:
+    repository: quay.io/metallb/controller
+  livenessProbe:
+    enabled: true
+    failureThreshold: 3
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1
+  nodeSelector: {}
+  podAnnotations: {}
+  readinessProbe:
+    enabled: true
+    failureThreshold: 3
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1
+  resources: {}
+  serviceAccount:
+    annotations: {}
+    create: true
+    name: ""
+  tolerations: []
+existingConfigMap: ""
+fullnameOverride: ""
+imagePullSecrets: []
+nameOverride: ""
+prometheus:
+  metricsPort: 7472
+  podMonitor:
+    enabled: false
+    jobLabel: app.kubernetes.io/name
+    metricRelabelings: []
+    relabelings: []
+  prometheusRule:
+    addressPoolExhausted:
+      enabled: true
+      labels:
+        severity: alert
+    addressPoolUsage:
+      enabled: true
+      thresholds:
+      - labels:
+          severity: warning
+        percent: 75
+      - labels:
+          severity: warning
+        percent: 85
+      - labels:
+          severity: alert
+        percent: 95
+    bgpSessionDown:
+      enabled: true
+      labels:
+        severity: alert
+    configNotLoaded:
+      enabled: true
+      labels:
+        severity: warning
+    enabled: false
+    extraAlerts: []
+    staleConfig:
+      enabled: true
+      labels:
+        severity: warning
+  scrapeAnnotations: false
+psp:
+  create: true
+rbac:
+  create: true
+speaker:
+  affinity: {}
+  enabled: true
+  image:
+    repository: quay.io/metallb/speaker
+  livenessProbe:
+    enabled: true
+    failureThreshold: 3
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1
+  memberlist:
+    enabled: true
+    mlBindPort: 7946
+  nodeSelector: {}
+  podAnnotations: {}
+  readinessProbe:
+    enabled: true
+    failureThreshold: 3
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1
+  resources: {}
+  serviceAccount:
+    annotations: {}
+    create: true
+    name: ""
+  tolerateMaster: true
+  tolerations: []

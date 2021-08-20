@@ -1,0 +1,35 @@
+affinity: {}
+image:
+  pullPolicy: IfNotPresent
+  repository: k8s.gcr.io/sig-storage/nfs-subdir-external-provisioner
+  tag: v4.0.2
+imagePullSecrets: []
+labels: {}
+leaderElection:
+  enabled: true
+nfs:
+  path: /srv/nfs/kubedata
+  server: 192.168.0.115
+  volumeName: nfs-subdir-external-provisioner-root
+nodeSelector: {}
+podAnnotations: {}
+podSecurityPolicy:
+  enabled: false
+rbac:
+  create: true
+replicaCount: 1
+resources: {}
+serviceAccount:
+  annotations: {}
+  create: true
+storageClass:
+  accessModes: ReadWriteOnce
+  allowVolumeExpansion: true
+  annotations: {}
+  archiveOnDelete: true
+  create: true
+  defaultClass: true
+  name: nfs-client
+  reclaimPolicy: Delete
+strategyType: Recreate
+tolerations: []
